@@ -1,0 +1,9 @@
+scenario: 21
+channel: voice
+agent_build: demo-smile-westlands/voice/reference
+run_on: "2026-09-07"
+turns:
+  - agent: "Of course. Cleaning starts from KES 3,500. What day suits you?"
+    meta: {language: en}
+  - agent: "Ndiyo, tunaweza kukuona kesho asubuhi. Je, saa mbili asubuhi inafaa?"
+    meta: {language: sw}

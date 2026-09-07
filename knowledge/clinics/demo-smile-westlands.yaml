@@ -1,0 +1,141 @@
+# FICTIONAL CLINIC — build and test target (spec §10, step 3).
+# Not a real practice. Do not use for a live deployment.
+clinic_id: demo-smile-westlands
+fictional: true
+
+clinic:
+  name: Demo Smile Dental Studio
+  phone_primary: "+254700000000"
+  whatsapp: "+254700000000"
+  chairs: 3
+  owner_dentist: Dr. Achieng Otieno
+
+location:
+  area: Westlands
+  address: 4th Floor, Karuna Court, Karuna Road, Westlands, Nairobi
+  landmark: Opposite the Sarit Centre car park entrance
+  maps_pin: "https://maps.app.goo.gl/DEMOFICTIONALPIN"
+  plus_code: "6GCRPR6C+2V"
+  parking: Free patient parking in the basement, level B1. Tell the guard you
+    are here for the dental studio.
+
+opening_hours:
+  monday: "08:00-18:00"
+  tuesday: "08:00-18:00"
+  wednesday: "08:00-18:00"
+  thursday: "08:00-18:00"
+  friday: "08:00-18:00"
+  saturday: "09:00-14:00"
+  sunday: closed
+  public_holidays: closed
+
+appointments:
+  typical_length_minutes: 30
+  consultation_length_minutes: 20
+  walk_in_policy: Walk-ins are seen only if there is a gap. Booking is
+    strongly preferred.
+  children: Yes, we see children from age 3.
+  female_dentist_available: Yes, Dr. Achieng Otieno is in on most weekdays.
+
+price_list:
+  # Every entry is a FROM figure. Spec §6: "always as a 'from' figure".
+  - procedure: Consultation
+    from_price_kes: 2000
+    quotable: true
+    is_consultation_fee: true
+  - procedure: Scaling and polishing (cleaning)
+    aliases: [cleaning, scaling, polishing, "kusafisha meno"]
+    from_price_kes: 3500
+    quotable: true
+  - procedure: Simple extraction
+    aliases: [extraction, "kung'oa jino"]
+    from_price_kes: 3000
+    quotable: true
+  - procedure: Composite filling
+    aliases: [filling]
+    from_price_kes: 4500
+    quotable: true
+  - procedure: X-ray (single tooth)
+    aliases: [xray, "x-ray"]
+    from_price_kes: 1500
+    quotable: true
+  - procedure: Teeth whitening (in-chair)
+    aliases: [whitening, bleaching]
+    from_price_kes: 18000
+    quotable: true
+  # Not quotable — spec §6 forbids quoting these even though we offer them.
+  - procedure: Dental implant
+    aliases: [implant, implants]
+    category: implant
+    quotable: false
+  - procedure: Root canal treatment
+    aliases: [root canal, rct, endo]
+    category: surgery
+    quotable: false
+  - procedure: Clear aligners
+    aliases: [aligners, invisalign, braces, ortho]
+    category: ortho
+    quotable: false
+  - procedure: Veneers
+    aliases: [veneer, veneers]
+    category: veneers
+    quotable: false
+
+services_offered:
+  - General check-up and cleaning
+  - Fillings and extractions
+  - Root canal treatment
+  - Dental implants
+  - Clear aligners
+  - Veneers and cosmetic work
+  - Children's dentistry
+
+services_not_offered:
+  - service: Orthodontic surgery / jaw surgery
+    aliases: [jaw surgery, orthognathic]
+    referral: We refer those to the maxillofacial unit at Nairobi Hospital,
+      Argwings Kodhek Road.
+  - service: Wisdom tooth surgical removal under general anaesthetic
+    aliases: [wisdom tooth ga, general anaesthetic]
+    referral: We refer those to the maxillofacial unit at Nairobi Hospital,
+      Argwings Kodhek Road.
+
+payment:
+  methods: [cash, m-pesa, card]
+  mpesa:
+    type: paybill
+    number: "000000"
+    account: Patient name
+    note: FICTIONAL — replace before any live deployment.
+  deposit_required: false
+  # Closed list. Spec §6: "Never confirm that a specific insurer is accepted
+  # unless it is listed in KNOWLEDGE." Jubilee is deliberately absent — that is
+  # what scenario 23 tests. Do not add it.
+  insurers_accepted:
+    - Britam
+    - AAR
+
+emergency:
+  casualty:
+    name: MP Shah Hospital
+    road: Shivachi Road, Parklands
+    open_24h: true
+    phone: "+254722000000"
+    # Spec §6: "Verify each one — do not rely on the agent's general knowledge
+    # of Nairobi hospitals."
+    verified_on: "2026-09-07"
+    verified_by: "fixture — FICTIONAL clinic, not a verified referral"
+  emergency_numbers: ["999", "112"]
+  next_open_time: "08:00"
+  practice_manager_sms: "+254700000001"
+
+whatsapp:
+  response_time_promise: We reply within 15 minutes during working hours.
+  send_price_list_as_message: true
+
+# Facts deliberately NOT in KNOWLEDGE, so the agent's callback path is exercised.
+# Spec §9 scenario 28 depends on the dentist roster being absent.
+unknowns:
+  - dentist_roster_by_day
+  - number_of_x_ray_machines
+  - insurer: Jubilee

@@ -1,0 +1,7 @@
+name,area,kind,chairs,owner_dentist,rating,review_count,services,insurers,has_whatsapp,runs_ads,advertises_budget_extraction,review_phrases,whatsapp_sent_at,whatsapp_replied_at,call_midday,call_after_close
+Example Silent Dental,Westlands,private,3,Dr. A Example,4.7,90,implants|aligners|veneers,jubilee|britam|aar,yes,yes,no,no one answers the phone ever,2026-09-01T20:00:00,,voicemail,voicemail
+Example Slow Reply,Kilimani,private,2,Dr. B Example,4.5,41,implants,britam,yes,no,no,,2026-09-01T20:00:00,2026-09-02T15:30:00,voicemail,voicemail
+Example Responsive,Lavington,private,4,Dr. C Example,4.8,150,aligners|veneers,cic|apa,yes,yes,no,,2026-09-01T20:00:00,2026-09-01T20:07:00,answered,answered
+Example County Facility,Embakasi,government,12,,4.4,30,,,yes,no,no,,2026-09-01T20:00:00,,voicemail,voicemail
+Example Budget Clinic,Ngong Road,private,1,Dr. D Example,4.4,55,,,yes,no,yes,,2026-09-01T20:00:00,,voicemail,voicemail
+Example No WhatsApp,Karen,private,2,Dr. E Example,4.6,70,implants,madison,no,yes,no,,,,voicemail,voicemail

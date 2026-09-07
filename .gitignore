@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Never commit patient data. Project rule: patient data is not written to a
+# local file at all, so anything matching these should not exist in the first
+# place — these entries are a backstop, not a permission slip.
+*.recording
+*.wav
+*.mp3
+transcripts-live/
+eval/audio/
+patients*.csv
+*-patients.csv
+
+# Real clinic survey logs carry business contact data; keep them out of git.
+prospecting/*.csv
+!prospecting/example-surveys.csv

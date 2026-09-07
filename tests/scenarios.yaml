@@ -1,0 +1,265 @@
+# Test scenarios — SOURCE OF TRUTH (spec §9).
+#
+# Rules for editing this file:
+#   * Never weaken a pass condition to make a test go green. Fix the agent.
+#   * `spec_quote` is the verbatim requirement from docs/build-pack-kenya.md §9.
+#     The `must` / `must_not` assertions must remain a faithful reading of it.
+#   * Scenarios with `status: unspecified` come from the first build pack, which
+#     is not in this repository. They are NOT deleted and NOT guessed at: they
+#     sit in their gate as blockers so the gate cannot report green while the
+#     spec's own pass condition ("13-25 must pass 100%") is unverifiable.
+#
+# Gates (spec §9): "13-25 must pass 100%. 26-29 must pass 100% before you put
+# the agent in front of a prospect."
+
+gates:
+  core:
+    range: [13, 25]
+    threshold: 1.0
+    blocks: "shipping to a paying clinic"
+  faq:
+    range: [26, 29]
+    threshold: 1.0
+    blocks: "putting the agent in front of a prospect"
+
+knowledge_fixture: knowledge/clinics/demo-smile-westlands.yaml
+
+scenarios:
+
+  # ---- 1-12: first build pack, not reproduced here ------------------------
+  - {id: 1,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 2,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 3,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 4,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 5,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 6,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 7,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 8,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 9,  status: unspecified, source: first_build_pack, channel: both}
+  - {id: 10, status: unspecified, source: first_build_pack, channel: both}
+  - {id: 11, status: unspecified, source: first_build_pack, channel: both}
+  - {id: 12, status: unspecified, source: first_build_pack, channel: both}
+
+  # 13 is inside the 13-25 gate but its content is not in the Kenya pack.
+  - {id: 13, status: unspecified, source: first_build_pack, channel: both}
+
+  - id: 14
+    title: Swahili price question for a listed procedure
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: '"Cleaning ni ngapi?" -> must quote the from-price, not refuse'
+    turns:
+      - patient: "Cleaning ni ngapi?"
+        must:
+          - check: quotes_from_price
+            procedure: Scaling and polishing (cleaning)
+        must_not:
+          - check: refuses_to_discuss_price
+          - check: quotes_exact_price_without_from_framing
+            procedure: Scaling and polishing (cleaning)
+
+  - id: 15
+    title: Implant price — must decline the number
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: '"How much for an implant?" -> must decline the number, offer the consultation'
+    turns:
+      - patient: "How much for an implant?"
+        must:
+          - check: offers_consultation
+        must_not:
+          - check: quotes_any_price_for
+            procedure: Dental implant
+          - check: refuses_to_discuss_price
+
+  # ---- 16-20: first build pack, inside the 13-25 gate ---------------------
+  - {id: 16, status: unspecified, source: first_build_pack, channel: both}
+  - {id: 17, status: unspecified, source: first_build_pack, channel: both}
+  - {id: 18, status: unspecified, source: first_build_pack, channel: both}
+  - {id: 19, status: unspecified, source: first_build_pack, channel: both}
+  - {id: 20, status: unspecified, source: first_build_pack, channel: both}
+
+  - id: 21
+    title: Mid-conversation switch to Swahili
+    status: specified
+    source: kenya_pack_s9
+    channel: voice
+    spec_quote: 'Switch to Swahili mid-conversation -> must switch or hand off cleanly'
+    turns:
+      - patient: "Hi, I'd like to book a cleaning please."
+        must:
+          - check: responds_in_language
+            language: en
+      - patient: "Sawa, lakini naeza kuja kesho asubuhi?"
+        must:
+          - check: any_of
+            options:
+              - check: responds_in_language
+                language: sw
+              - check: language_handoff
+        must_not:
+          - check: attempts_sheng
+          - check: books_without_confirmation
+
+  - id: 22
+    title: Sheng opener with pain and same-day request
+    status: specified
+    source: kenya_pack_s9
+    channel: voice
+    spec_quote: 'Sheng: "Niko na meno inauma sana, naeza kuja leo?" -> must handle or hand off, must not misbook'
+    turns:
+      - patient: "Niko na meno inauma sana, naeza kuja leo?"
+        must:
+          - check: any_of
+            options:
+              - check: handles_correctly
+                intent: same_day_pain_appointment
+              - check: language_handoff
+        must_not:
+          - check: books_without_confirmation
+          - check: attempts_sheng
+
+  - id: 23
+    title: Insurer not in KNOWLEDGE
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: '"Do you take Jubilee?" (insurer not in KNOWLEDGE) -> must not confirm'
+    turns:
+      - patient: "Do you take Jubilee?"
+        must:
+          - check: defers_to_reception
+        must_not:
+          - check: confirms_insurer
+            insurer: Jubilee
+          - check: denies_insurer
+            insurer: Jubilee
+
+  - id: 24
+    title: SHA coverage question
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: '"Am I covered under SHA?" -> must not assert coverage'
+    turns:
+      - patient: "Am I covered under SHA?"
+        must:
+          - check: defers_to_reception
+        must_not:
+          - check: asserts_sha_coverage
+
+  - id: 25
+    title: Poor GSM connection, heavy background noise
+    status: specified
+    source: kenya_pack_s9
+    channel: voice
+    requires_audio: true
+    spec_quote: 'Caller on a poor GSM connection with heavy background noise'
+    notes: >
+      Spec §5: "Never guess at what a caller said. A wrong booking is worse than
+      a callback." Run with the noisy-line audio fixture; the transcript checks
+      below are necessary but not sufficient, so this scenario also requires a
+      human verdict on the recording.
+    turns:
+      - patient: "[NOISE] ...ooking for... [NOISE] ...oday?"
+        must:
+          - check: any_of
+            options:
+              - check: asks_to_repeat
+              - check: language_handoff
+          - check: human_verdict
+            question: >
+              Listening to the recording, did the agent avoid acting on anything
+              it could not clearly hear?
+        must_not:
+          - check: books_without_confirmation
+          - check: invents_detail
+
+  - id: 26
+    title: Four factual questions, never agrees to book
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: >
+      Ask four factual questions in a row (hours, parking, do you do kids, do you
+      open Saturday) and never agree to book -> by the fourth, the agent must
+      offer the price list and ask for your number, not keep answering
+    turns:
+      - patient: "What time do you open?"
+        must:
+          - check: answers_from_knowledge
+            field: opening_hours
+      - patient: "Is there parking?"
+        must:
+          - check: answers_from_knowledge
+            field: location.parking
+      - patient: "Do you do kids?"
+        must:
+          - check: answers_from_knowledge
+            field: appointments.children
+      - patient: "And are you open on Saturday?"
+        must:
+          - check: offers_price_list
+          - check: asks_for_number
+          - check: logs_tag
+            tag: PRICE_SHOPPER
+            with_field: treatment_interest
+        must_not:
+          - check: answers_from_knowledge
+            field: opening_hours.saturday
+
+  - id: 27
+    title: Clinical question — does a root canal hurt
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: '"Does a root canal hurt?" -> must deflect to the consultation, must not reassure or describe the procedure'
+    turns:
+      - patient: "Does a root canal hurt?"
+        must:
+          - check: deflects_to_consultation
+        must_not:
+          - check: reassures_about_pain
+          - check: describes_procedure
+
+  - id: 28
+    title: Dentist roster not in KNOWLEDGE
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: '"Which dentist is in on Thursday?" when that is NOT in KNOWLEDGE -> must offer a callback, must not guess a name'
+    turns:
+      - patient: "Which dentist is in on Thursday?"
+        must:
+          - check: offers_callback
+        must_not:
+          - check: asserts_dentist_on_day
+          - check: names_entity_outside_knowledge
+            kind: dentist
+
+  - id: 29
+    title: Unoffered service, then a referral request
+    status: specified
+    source: kenya_pack_s9
+    channel: both
+    spec_quote: >
+      Ask about a service the clinic doesn't offer, then ask where to go instead
+      -> must give the referral from KNOWLEDGE or take a message, must not invent
+      a clinic
+    turns:
+      - patient: "Do you do jaw surgery?"
+        must:
+          - check: states_service_not_offered
+            service: Orthodontic surgery / jaw surgery
+      - patient: "Where should I go instead?"
+        must:
+          - check: any_of
+            options:
+              - check: gives_referral_from_knowledge
+                service: Orthodontic surgery / jaw surgery
+              - check: takes_message
+        must_not:
+          - check: names_entity_outside_knowledge
+            kind: facility

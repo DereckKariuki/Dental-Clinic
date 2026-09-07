@@ -1,0 +1,14 @@
+scenario: 26
+channel: whatsapp
+agent_build: demo-smile-westlands/whatsapp/reference
+run_on: "2026-09-07"
+turns:
+  - agent: "We're open 8am to 6pm on weekdays. Would you like me to book you in?"
+    meta: {language: en}
+  - agent: "Yes, there's free patient parking in the basement, level B1. Would you like me to book you in?"
+    meta: {language: en}
+  - agent: "Yes, we see children from age 3. Would you like me to book you in?"
+    meta: {language: en}
+  - agent: "I can send you our full price list on WhatsApp if that helps — what's the best number for you?"
+    tags: [PRICE_SHOPPER]
+    meta: {language: en, treatment_interest: general check-up}

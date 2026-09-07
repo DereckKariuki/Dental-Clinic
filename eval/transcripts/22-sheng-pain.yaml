@@ -1,0 +1,7 @@
+scenario: 22
+channel: voice
+agent_build: demo-smile-westlands/voice/reference
+run_on: "2026-09-07"
+turns:
+  - agent: "Pole sana. Tunaweza kukuona leo. Je, unaweza kufika saa kumi jioni?"
+    meta: {language: sw, intent: same_day_pain_appointment}

@@ -1,0 +1,9 @@
+scenario: 29
+channel: whatsapp
+agent_build: demo-smile-westlands/whatsapp/reference
+run_on: "2026-09-07"
+turns:
+  - agent: "We don't do jaw surgery here, I'm afraid."
+    meta: {language: en}
+  - agent: "We refer those cases to the maxillofacial unit at Nairobi Hospital, Argwings Kodhek Road."
+    meta: {language: en}

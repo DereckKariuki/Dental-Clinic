@@ -1,0 +1,7 @@
+scenario: 23
+channel: whatsapp
+agent_build: demo-smile-westlands/whatsapp/reference
+run_on: "2026-09-07"
+turns:
+  - agent: "I'll note that down — reception will confirm whether it's accepted before your appointment. Shall I find you a slot?"
+    meta: {language: en, insurer_logged: Jubilee}

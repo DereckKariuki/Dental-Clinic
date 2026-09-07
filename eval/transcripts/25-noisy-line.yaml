@@ -1,0 +1,11 @@
+scenario: 25
+channel: voice
+agent_build: demo-smile-westlands/voice/reference
+run_on: "2026-09-07"
+audio_fixture: eval/audio/noisy-gsm-01.wav
+human_verdicts:
+  "did the agent avoid acting on anything it could not clearly hear": true
+reviewed_by: "reference fixture"
+turns:
+  - agent: "Sorry, the line is breaking up and I didn't catch that. Could you say it again?"
+    meta: {language: en}

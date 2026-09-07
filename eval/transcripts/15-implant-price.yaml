@@ -1,0 +1,7 @@
+scenario: 15
+channel: whatsapp
+agent_build: demo-smile-westlands/whatsapp/reference
+run_on: "2026-09-07"
+turns:
+  - agent: "It ranges quite a bit depending on the case. If you come for the consultation, you'll get an exact figure the same day. Should I book you in?"
+    meta: {language: en}

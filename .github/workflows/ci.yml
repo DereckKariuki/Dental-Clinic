@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements-dev.txt
+      - name: Unit tests
+        run: python -m pytest
+      - name: Scenario suite
+        # The core gate is red on purpose while scenarios 13 and 16-20 are
+        # missing from this repo (see README). test_scenarios.py asserts that
+        # it is red for that reason and no other, so the report here is
+        # informational rather than a second, duplicate failure.
+        continue-on-error: true
+        run: PYTHONPATH=src python -m dentaldesk.evaluate eval/transcripts -v
