@@ -29,10 +29,18 @@ business listing; everything else was written to fill the page.
 
 ### Placeholder — replace before going live
 
-1. **Every menu item and price** (`menu.html`, plus the three cards in
-   `index.html`). These are representative Kenyan dishes with prices chosen to
-   fit the Ksh 1,000–1,500 band. They are **not** the real menu. Publishing
-   prices that aren't yours will annoy customers at the till.
+1. **The menu.** `menu.html` now carries the **real** sections and dishes,
+   transcribed from the owner's menu images: jiko pizzas, gyros, shawarma,
+   chef's specials, weekend biryanis, bites, chips and fresh juices. Two things
+   are still outstanding:
+   - **Prices.** Only the four jiko pizza prices are confirmed. The source
+     images are 141 px wide, at which the price column is not legible — a test
+     against known ground truth misread Ksh 600 as Ksh 800 — so no other price
+     is printed. Higher-resolution menu images are needed.
+   - **The home page still describes Kenyan home cooking**, which the real menu
+     contradicts. The three dish cards in `index.html`, the hero copy, the "Our
+     Story" section and the "Kenyan Home Kitchen" brand tagline all need
+     rewriting once the owner confirms how they want the restaurant described.
 2. **Opening times.** Only the 9:30 pm close is known. The site currently claims
    **8:00 am – 9:30 pm, seven days a week**. Fix it in two places (see
    *Changing opening hours* below).
