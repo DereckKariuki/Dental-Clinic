@@ -37,10 +37,10 @@ business listing; everything else was written to fill the page.
      images are 141 px wide, at which the price column is not legible — a test
      against known ground truth misread Ksh 600 as Ksh 800 — so no other price
      is printed. Higher-resolution menu images are needed.
-   - **The home page still describes Kenyan home cooking**, which the real menu
-     contradicts. The three dish cards in `index.html`, the hero copy, the "Our
-     Story" section and the "Kenyan Home Kitchen" brand tagline all need
-     rewriting once the owner confirms how they want the restaurant described.
+   - A few dish names could not be read at all. A word that scans as "POUSSIN"
+     recurs before Chicken, Paneer, Prawns and Muhogo; the Sunday special and
+     the menu's social handle are illegible. All are omitted rather than
+     guessed.
 2. **Opening times.** Only the 9:30 pm close is known. The site currently claims
    **8:00 am – 9:30 pm, seven days a week**. Fix it in two places (see
    *Changing opening hours* below).
@@ -49,9 +49,13 @@ business listing; everything else was written to fill the page.
    site — swap them in first. **Drop them into `assets/img/photos/` using the
    filenames in that folder's README and they appear automatically**; there is
    no HTML to edit, and a missing photo just leaves the illustration in place.
-4. **The "Our Story" copy** in `index.html` is written from the name (a *mwiko*
-   is the wooden cooking spoon) and is plausible, not sourced. Rewrite it in the
-   owner's own words.
+4. **The "Our Story" copy** in `index.html` now describes the food that is
+   actually on the menu, but it is written from the menu rather than from the
+   owner. There is no invented history in it — no family story, no founding
+   date — but it should still be rewritten in the owner's own words.
+   Note also that **"halal" is nowhere on the site**: the menu has no pork and
+   the dessert brand is named Deen Haven, but that is an inference, not a
+   confirmed fact, and it is not a claim to publish on someone's behalf.
 5. **The domain.** `https://mamasmwiko.co.ke/` is used in the canonical tag,
    Open Graph tags, `sitemap.xml` and `robots.txt`. Find-and-replace it with the
    real domain.
@@ -120,10 +124,10 @@ Put them in `assets/img/photos/` with these exact names — nothing else to do:
 | Filename | Where | Shape |
 |---|---|---|
 | `hero.jpg` | Behind the headline | Landscape 16:9 |
-| `story.jpg` | Beside "The mwiko never lies" | Portrait 4:5 |
-| `nyama-choma.jpg` | Signature plates, card 1 | Landscape 4:3 |
-| `kuku-kienyeji.jpg` | Signature plates, card 2 | Landscape 4:3 |
-| `managu-ugali.jpg` | Signature plates, card 3 | Landscape 4:3 |
+| `story.jpg` | Beside "Coast, grill and jiko" | Portrait 4:5 |
+| `jiko-pizza.jpg` | Signature plates, card 1 | Landscape 4:3 |
+| `gyros.jpg` | Signature plates, card 2 | Landscape 4:3 |
+| `tawa-prawns.jpg` | Signature plates, card 3 | Landscape 4:3 |
 
 `upgradeToPhotos()` in `assets/js/site.js` probes each file and swaps it in only
 once it has loaded, so the page never flashes a broken image and works fine with

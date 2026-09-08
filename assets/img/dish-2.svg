@@ -1,27 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Kuku kienyeji stew in a rich tomato sauce">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A gyros wrap cut open, stacked with kebab and salad">
   <defs>
-    <linearGradient id="g-dish-2.svg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="g-bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#2b211b"/><stop offset="100%" stop-color="#3f3324"/>
     </linearGradient>
+    <linearGradient id="g-bread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d9bf8e"/><stop offset="40%" stop-color="#f2e3c0"/>
+      <stop offset="100%" stop-color="#cdb083"/>
+    </linearGradient>
+    <linearGradient id="g-paper" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e9e3d5"/><stop offset="100%" stop-color="#cfc7b5"/>
+    </linearGradient>
   </defs>
-  <rect width="480" height="360" fill="url(#g-dish-2.svg)"/>
-  <circle cx="240" cy="186" r="132" fill="#0f0b09" opacity=".16"/>
-  <circle cx="240" cy="180" r="130" fill="#f4ece0"/>
-  <circle cx="240" cy="180" r="112" fill="#e8dccb"/>
-  <circle cx="240" cy="180" r="98" fill="#f4ece0"/>
-  <!-- main -->
-  <ellipse cx="212" cy="172" rx="62" ry="48" fill="#a8631f"/>
-  <ellipse cx="212" cy="166" rx="46" ry="34" fill="#c9812c" opacity=".8"/>
-  <!-- side -->
-  <circle cx="298" cy="206" r="40" fill="#fbf7f0"/>
-  <circle cx="298" cy="202" r="32" fill="#efe6d6"/>
-  <!-- greens -->
-  <g fill="#4f6b4a">
-    <ellipse cx="272" cy="128" rx="30" ry="19" transform="rotate(-18 272 128)"/>
-    <ellipse cx="300" cy="146" rx="22" ry="14" transform="rotate(12 300 146)"/>
+  <rect width="480" height="360" fill="url(#g-bg)"/>
+  <ellipse cx="240" cy="322" rx="150" ry="22" fill="#0f0b09" opacity=".45"/>
+
+  <!-- paper sleeve, angled -->
+  <path d="M138 330 L176 168 l150 -30 l52 168 z" fill="url(#g-paper)"/>
+  <path d="M176 168 l150 -30" stroke="#b9b0a0" stroke-width="3"/>
+
+  <!-- the wrap body, cut on the diagonal so the filling shows -->
+  <path d="M166 332 L206 120 l84 -18 l58 214 a16 16 0 0 1 -16 18 H182 a16 16 0 0 1 -16 -18 Z" fill="url(#g-bread)"/>
+
+  <!-- cut face -->
+  <path d="M206 120 l84 -18 l16 60 l-104 22 z" fill="#f6ead0"/>
+
+  <!-- filling stacked on the cut face -->
+  <g>
+    <ellipse cx="240" cy="128" rx="34" ry="17" fill="#8a4a22" transform="rotate(-12 240 128)"/>
+    <ellipse cx="272" cy="124" rx="26" ry="13" fill="#a35a28" transform="rotate(-12 272 124)"/>
+    <ellipse cx="232" cy="150" rx="30" ry="13" fill="#4f7a45" transform="rotate(-12 232 150)"/>
+    <ellipse cx="278" cy="148" rx="22" ry="10" fill="#5d8a4e" transform="rotate(-12 278 148)"/>
+    <ellipse cx="252" cy="166" rx="26" ry="10" fill="#c9d9a8" transform="rotate(-12 252 166)"/>
+    <circle cx="220" cy="140" r="6" fill="#c0442a"/>
+    <circle cx="288" cy="136" r="5" fill="#c0442a"/>
+    <circle cx="258" cy="112" r="5" fill="#e0a324"/>
   </g>
-  <!-- garnish -->
-  <g fill="#e0a324" opacity=".9">
-    <circle cx="182" cy="216" r="7"/><circle cx="240" cy="234" r="5"/><circle cx="264" cy="98" r="6"/>
+
+  <!-- garlic sauce over the filling -->
+  <path d="M212 172 q26 14 52 6 q26 -8 44 6" stroke="#fdf6e4" stroke-width="8" fill="none" stroke-linecap="round" opacity=".9"/>
+
+  <!-- char lines on the bread -->
+  <g stroke="#b98f57" stroke-width="4" opacity=".55" stroke-linecap="round">
+    <path d="M196 214 l108 -22"/><path d="M204 254 l112 -22"/><path d="M212 294 l114 -22"/>
   </g>
 </svg>
