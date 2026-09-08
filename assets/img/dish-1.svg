@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Nyama choma platter with kachumbari and ugali">
+  <defs>
+    <linearGradient id="g-dish-1.svg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b211b"/><stop offset="100%" stop-color="#4a382c"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="360" fill="url(#g-dish-1.svg)"/>
+  <circle cx="240" cy="186" r="132" fill="#0f0b09" opacity=".16"/>
+  <circle cx="240" cy="180" r="130" fill="#f4ece0"/>
+  <circle cx="240" cy="180" r="112" fill="#e8dccb"/>
+  <circle cx="240" cy="180" r="98" fill="#f4ece0"/>
+  <!-- main -->
+  <ellipse cx="212" cy="172" rx="62" ry="48" fill="#7b3f22"/>
+  <ellipse cx="212" cy="166" rx="46" ry="34" fill="#a35328" opacity=".8"/>
+  <!-- side -->
+  <circle cx="298" cy="206" r="40" fill="#fbf7f0"/>
+  <circle cx="298" cy="202" r="32" fill="#efe6d6"/>
+  <!-- greens -->
+  <g fill="#4f6b4a">
+    <ellipse cx="272" cy="128" rx="30" ry="19" transform="rotate(-18 272 128)"/>
+    <ellipse cx="300" cy="146" rx="22" ry="14" transform="rotate(12 300 146)"/>
+  </g>
+  <!-- garnish -->
+  <g fill="#e0a324" opacity=".9">
+    <circle cx="182" cy="216" r="7"/><circle cx="240" cy="234" r="5"/><circle cx="264" cy="98" r="6"/>
+  </g>
+</svg>
