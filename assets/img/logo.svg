@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Mama's Mwiko">
+  <circle cx="24" cy="24" r="24" fill="#c2542b"/>
+  <circle cx="24" cy="24" r="19.5" fill="none" stroke="#fbf7f0" stroke-opacity=".45" stroke-width="1.2"/>
+  <g transform="rotate(-32 24 24)">
+    <ellipse cx="24" cy="16.5" rx="7" ry="8.5" fill="#fbf7f0"/>
+    <ellipse cx="24" cy="16.8" rx="4.4" ry="5.6" fill="#e0a324"/>
+    <rect x="21.9" y="23" width="4.2" height="15.5" rx="2.1" fill="#fbf7f0"/>
+  </g>
+</svg>

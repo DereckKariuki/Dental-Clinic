@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="glow" cx="62%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#e0a324" stop-opacity=".95"/>
+      <stop offset="42%" stop-color="#c2542b" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#1b1512" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d302a"/>
+      <stop offset="100%" stop-color="#1b1512"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#241b16"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect y="620" width="1600" height="280" fill="url(#floor)"/>
+
+  <!-- charcoal embers -->
+  <g fill="#e0a324" opacity=".55">
+    <circle cx="980" cy="392" r="9"/><circle cx="1042" cy="428" r="5"/>
+    <circle cx="912" cy="440" r="6"/><circle cx="1088" cy="376" r="7"/>
+    <circle cx="856" cy="392" r="4"/><circle cx="1136" cy="440" r="4"/>
+  </g>
+  <g fill="#c2542b" opacity=".35">
+    <circle cx="1010" cy="330" r="14"/><circle cx="900" cy="500" r="18"/>
+    <circle cx="1160" cy="500" r="12"/><circle cx="1240" cy="380" r="9"/>
+  </g>
+
+  <!-- grill grate -->
+  <g stroke="#0f0b09" stroke-opacity=".55" stroke-width="7" stroke-linecap="round">
+    <path d="M780 560h500M780 596h500M780 632h500"/>
+  </g>
+  <g stroke="#0f0b09" stroke-opacity=".35" stroke-width="5" stroke-linecap="round">
+    <path d="M830 540v112M950 540v112M1070 540v112M1190 540v112"/>
+  </g>
+
+  <!-- sufuria silhouette -->
+  <g opacity=".85">
+    <path d="M300 470h300l-26 190a40 40 0 0 1-40 34H366a40 40 0 0 1-40-34L300 470Z" fill="#0f0b09"/>
+    <rect x="278" y="452" width="344" height="26" rx="13" fill="#0f0b09"/>
+    <g transform="rotate(24 470 470)">
+      <rect x="452" y="240" width="26" height="230" rx="13" fill="#5a3f2c"/>
+      <ellipse cx="465" cy="232" rx="34" ry="42" fill="#6b4a34"/>
+    </g>
+  </g>
+
+  <!-- steam -->
+  <g stroke="#fbf7f0" stroke-opacity=".16" stroke-width="9" stroke-linecap="round" fill="none">
+    <path d="M380 420c-30-46 30-70 0-118"/>
+    <path d="M460 404c-30-46 30-78 0-126"/>
+    <path d="M540 424c-30-46 30-70 0-118"/>
+  </g>
+</svg>

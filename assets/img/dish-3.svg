@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Prawns seared on the tawa">
+  <defs>
+    <linearGradient id="t-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22241b"/><stop offset="100%" stop-color="#3a2f22"/>
+    </linearGradient>
+    <radialGradient id="t-pan" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#40342c"/><stop offset="100%" stop-color="#1d1713"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="360" fill="url(#t-bg)"/>
+  <ellipse cx="240" cy="196" rx="152" ry="146" fill="#0f0b09" opacity=".4"/>
+  <circle cx="240" cy="184" r="146" fill="#2a221c"/>
+  <circle cx="240" cy="184" r="132" fill="url(#t-pan)"/>
+  <circle cx="240" cy="184" r="132" fill="none" stroke="#584637" stroke-width="4"/>
+
+  <!-- prawns -->
+  <g fill="#e0663a" stroke="#b8451f" stroke-width="3">
+    <path d="M186 132 a34 34 0 1 1 4 46 a20 20 0 0 0 -22 -14" />
+    <path d="M286 146 a34 34 0 1 1 4 46 a20 20 0 0 0 -22 -14" />
+    <path d="M226 214 a34 34 0 1 1 4 46 a20 20 0 0 0 -22 -14" />
+  </g>
+  <g fill="#f0946a">
+    <path d="M190 140 a24 24 0 0 1 26 8" opacity=".8"/>
+    <path d="M290 154 a24 24 0 0 1 26 8" opacity=".8"/>
+    <path d="M230 222 a24 24 0 0 1 26 8" opacity=".8"/>
+  </g>
+
+  <!-- garlic, chilli, coriander -->
+  <g>
+    <circle cx="170" cy="216" r="8" fill="#f4e9d2"/>
+    <circle cx="318" cy="216" r="7" fill="#f4e9d2"/>
+    <circle cx="262" cy="118" r="6" fill="#f4e9d2"/>
+    <ellipse cx="300" cy="252" rx="16" ry="6" fill="#b8321f" transform="rotate(-24 300 252)"/>
+    <ellipse cx="172" cy="150" rx="14" ry="5" fill="#b8321f" transform="rotate(30 172 150)"/>
+    <ellipse cx="240" cy="290" rx="18" ry="8" fill="#4f7a45"/>
+    <ellipse cx="196" cy="266" rx="12" ry="6" fill="#5d8a4e"/>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A wooden mwiko resting on the rim of a simmering sufuria">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4ece0"/><stop offset="100%" stop-color="#e0cdb4"/>
+    </linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a3c34"/><stop offset="45%" stop-color="#6b574b"/>
+      <stop offset="100%" stop-color="#3b2f29"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8a6039"/><stop offset="50%" stop-color="#a8794c"/>
+      <stop offset="100%" stop-color="#7b5433"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <circle cx="330" cy="470" r="270" fill="#c2542b" opacity=".10"/>
+  <circle cx="330" cy="470" r="200" fill="#e0a324" opacity=".12"/>
+
+  <!-- steam -->
+  <g stroke="#8a7566" stroke-opacity=".38" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M250 300c-26-40 26-62 0-104"/>
+    <path d="M330 282c-26-40 26-70 0-112"/>
+    <path d="M410 302c-26-40 26-62 0-104"/>
+  </g>
+
+  <!-- pot -->
+  <path d="M150 400h360l-30 250a56 56 0 0 1-56 48H236a56 56 0 0 1-56-48L150 400Z" fill="url(#pot)"/>
+  <rect x="128" y="376" width="404" height="34" rx="17" fill="#5c4a40"/>
+  <path d="M170 420h320l-8 62H178l-8-62Z" fill="#c2542b" opacity=".55"/>
+  <ellipse cx="330" cy="418" rx="152" ry="20" fill="#8c3f1f"/>
+  <ellipse cx="330" cy="414" rx="130" ry="15" fill="#b8552c"/>
+
+  <!-- mwiko resting on the rim -->
+  <g transform="rotate(-28 330 400)">
+    <rect x="312" y="150" width="34" height="300" rx="17" fill="url(#wood)"/>
+    <ellipse cx="329" cy="140" rx="52" ry="66" fill="url(#wood)"/>
+    <ellipse cx="329" cy="142" rx="34" ry="46" fill="#6d492c" opacity=".55"/>
+  </g>
+
+  <!-- table shadow -->
+  <ellipse cx="330" cy="712" rx="215" ry="26" fill="#1b1512" opacity=".14"/>
+</svg>
