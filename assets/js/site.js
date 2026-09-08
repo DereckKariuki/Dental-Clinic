@@ -220,6 +220,26 @@
   }
 
   /* ---------------------------------------------------------
+     Swap the placeholder illustrations for real photos.
+
+     Each slot carries data-photo="<path>". If that file loads, it
+     replaces the illustration; if it is missing, the illustration
+     simply stays. So dropping photos into assets/img/photos/ is all
+     it takes — no HTML to edit, and never a broken image.
+     --------------------------------------------------------- */
+  function upgradeToPhotos() {
+    $$('img[data-photo]').forEach(function (img) {
+      var probe = new Image();
+      probe.onload = function () {
+        img.src = img.dataset.photo;
+        if (img.dataset.photoAlt) img.alt = img.dataset.photoAlt;
+        img.classList.add('is-photo');
+      };
+      probe.src = img.dataset.photo;
+    });
+  }
+
+  /* ---------------------------------------------------------
      Misc
      --------------------------------------------------------- */
   function setYear() {
@@ -228,6 +248,7 @@
 
   renderStatus();
   highlightToday();
+  upgradeToPhotos();
   initNav();
   initStickyHeader();
   initBookingForm();

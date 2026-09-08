@@ -38,7 +38,9 @@ business listing; everything else was written to fill the page.
    *Changing opening hours* below).
 3. **Photography.** All images are hand-drawn SVG stand-ins. Real photos of the
    food and the courtyard are the single biggest conversion win on a restaurant
-   site — swap them in first.
+   site — swap them in first. **Drop them into `assets/img/photos/` using the
+   filenames in that folder's README and they appear automatically**; there is
+   no HTML to edit, and a missing photo just leaves the illustration in place.
 4. **The "Our Story" copy** in `index.html` is written from the name (a *mwiko*
    is the wooden cooking spoon) and is plausible, not sourced. Rewrite it in the
    owner's own words.
@@ -103,11 +105,23 @@ Search for `254791755663` (links) and `0791 755663` (display text) across
 All tokens live in `:root` at the top of `assets/css/styles.css` — palette,
 radii, shadows, fonts. Change them there rather than hunting through rules.
 
-### Replacing images
+### Adding real photos
 
-Drop real files into `assets/img/` and update the `src` attributes. Recommended
-sizes: hero 1600×900, story 640×800, dish cards 480×360. Export as WebP or JPEG
-and keep each under ~200 KB.
+Put them in `assets/img/photos/` with these exact names — nothing else to do:
+
+| Filename | Where | Shape |
+|---|---|---|
+| `hero.jpg` | Behind the headline | Landscape 16:9 |
+| `story.jpg` | Beside "The mwiko never lies" | Portrait 4:5 |
+| `nyama-choma.jpg` | Signature plates, card 1 | Landscape 4:3 |
+| `kuku-kienyeji.jpg` | Signature plates, card 2 | Landscape 4:3 |
+| `managu-ugali.jpg` | Signature plates, card 3 | Landscape 4:3 |
+
+`upgradeToPhotos()` in `assets/js/site.js` probes each file and swaps it in only
+once it has loaded, so the page never flashes a broken image and works fine with
+photos missing. Alt text for each photo lives in the slot's `data-photo-alt`
+attribute in `index.html`. See `assets/img/photos/README.md` for shooting and
+sizing notes.
 
 **Note on link previews:** `og:image` currently points at an SVG. WhatsApp,
 Facebook and X will not render an SVG preview — replace it with a 1200×630
